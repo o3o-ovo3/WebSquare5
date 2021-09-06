@@ -22,4 +22,4 @@
 
 #### 🔖 책갈피
 
-- [웹스퀘어5 개발자 온라인 교육 과정](https://www.youtube.com/watch?v=KeHyCNx-z0o) - 3:32:37
+- [웹스퀘어5 고급 과정](https://www.youtube.com/watch?v=uMDO9sRGKZk&list=PL7a9HhkvOVb0JAbcD8JrThjwssqAQSNAh&index=4) - 12:00
