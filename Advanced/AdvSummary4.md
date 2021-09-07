@@ -36,6 +36,7 @@
 - <img src='../resources/parent.PNG' width='500px' align='center'>
 - <img src='../resources/child.PNG' width='500px' align='center'>
 - <img src='../resources/result.PNG' width='500px' align='center'>
+
   - 위와 같이 부모와 자식에서 동일한 id를 사용해도 에러 없이 정상적으로 작동된다.
   - scope라는 속성이 적용되었기 때문이다.
     - 실제 화면에서 rendering되는 id를 변경하는 속성이다.
