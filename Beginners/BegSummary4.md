@@ -21,6 +21,17 @@
 - insertXML : 신규 row를 생성하면서 XML 형태의 초기 data를 함께 적용한다.
 - insertData : 신규 row를 생성하면서 1차원 Array 형태의 초기 data를 함께 적용한다.
 
+``` javascript
+// gridView의 API를 이용하여 focus Row Index 위에 추가
+scwin.btnInsert_onclick = function(e){
+    var focusIdx = ui_memberList.getFocusedRowIndex();
+    					// 행을 추가할 인덱스값
+    dc_userInfoList.insertRow(focusIdx);
+}
+```
+
+
+
 <br/>
 
 <br/>
@@ -30,7 +41,27 @@
 <b>삭제 처리에는 두가지 방식이 있다.</b>
 
 - delete 처리 : 실제 데이터를 지우는 것이 아니라, rowStatus만 삭제 상태로 변경한다. ('D') 로 상태 변경
+
+  ``` javascript
+  // delete - 상태값만 변경
+  	scwin.btnDelete_onclick = function(e) {
+  		var focusIdx = ui_memberList.getFocusedRowIndex();
+  		dc_userInfoList.deleteRow(focusIdx);
+  	};
+  ```
+
+  <br/>
+
 - remove 처리 : 실제 데이터를 삭제하는 방식으로, dataList에 남지 않기 때문에 rowStatus 자체가 존재하지 않는다.
+
+  ``` javascript
+  // remove - 실제 삭제
+  	scwin.btnRemove_onclick = function(e) {
+  		var focusIdx = ui_memberList.getFocusedRowIndex();
+  		var obj = dc_userInfoList.removeRow(focusIdx); // 삭제된 data 반환
+  	};
+  ```
+
   - remove API는 삭제된 data 자체를 반환한다. 따라서 변수를 이용하면 다시 활용할 수 있다.
 
 <br/>
@@ -42,12 +73,24 @@
 <b>위와 같은 작업들을 저장하려면 이를 수행하는 submission을 생성한다.</b>
 
 - 입력, 수정, 삭제 작업에 대해서만 처리를 원한다면, 화면에 보여지는 모든 data를 서버로 전송할 필요 없다.
+
 - 영향을 받지 않은 data를 제외한 것들만 전송하는 옵션
+
   - submission의 Reference에 dataList를 아무 옵션 없이 설정하면 모든 data가 전송된다.
   - all : 모든 data 전송 (default)
   - inserted : 입력된 data 전송
   - deleted : 삭제된 data 전송
   - updated : 수정된 data 전송
+
+  <img src='../resources/submission.PNG' width='400px' align='center'>
+
+``` javascript
+// 입력, 수정, 삭제 data만 request 정보로 전송하기
+	scwin.btnSave_onclick = function(e) {
+		$p.executeSubmission( "sbm_save" );
+		alert("저장헸습니다.");
+	};
+```
 
 <br/>
 
@@ -64,6 +107,23 @@
   - getCheckedJSON : check된 row의 data를 json 형태로 반환
   - getCheckedXML : check된 row의 data를 xml 형태로 반환
 
+``` javascript
+	// 다중 삭제 (delete)
+	scwin.btnDeleteRows_onclick = function(e) {
+		var chkarr = ui_memberList.getCheckedIndex("CHK");
+		dc_userInfoList.deleteRows(chkarr);
+	};
+	
+	// 다중 삭제 (remove)
+	scwin.btnRemoveRows_onclick = function(e) {
+		var chkarr = ui_memberList.getCheckedIndex("CHK");	
+		var obj = dc_userInfoList.removeRows(chkarr);
+		console.log(obj);
+	};
+```
+
+
+
 <br/>
 
 <br/>
@@ -77,6 +137,16 @@
     - 초기화 적용을 위해 사용하는 dataList의 API
     - 한꺼번에 모든 값을 삭제하고, removeRow, removeRows와 마찬가지로 삭제된 data를 1차원 배열로 반환
 
+    ``` javascript
+    scwin.btnInit_onclick = function(e) {
+    		// 삭제 data를 반환하고 싶을 때
+    		var obj = dc_userInfoList.removeAll();
+    		console.log(obj);
+    	};
+    ```
+
+    
+
     <br/>
 
   - setData
@@ -85,6 +155,15 @@
     - 인자로 빈 배열을 넣어주면 모든 data가 초기화 된다.
     - 이 경우 삭제된 data를 갖고있지 않아 <b>메모리를 훨씬 적게</b> 사용할 수 있다.
     - 삭제된 data를 활용하지 않는다면 이 방법을 권장한다.
+
+    ``` javascript
+    scwin.btnInit_onclick = function(e) {
+    		// 삭제 data를 반환할 필요가 없을 때
+    		dc_userInfoList.setData([]);
+    	};
+    ```
+
+    
 
 <br/>
 
