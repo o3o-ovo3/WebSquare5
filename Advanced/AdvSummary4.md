@@ -125,3 +125,14 @@
   - 마찬가지로 gridView의 내용이 바뀌어도 부모 - 자식 간에 동일하게 반영된다.
 
     <img src='../resources/aliasList.PNG' width='500px' align='center'>
+<br/>
+
+<br/>
+
+#### 4-7) WFrame 사용 시 주의할 점
+
+- IFrame과 달리 하나의 페이지로 인식하기 때문에 scope로 적용된 영역에 대해 개별 제어가 불가능하다.
+- id가 변경되어 rendering 되기 때문에 css 작성 시 id selector를 사용할 수 없다.
+- 외부 모듈 연계 시 WFrame으로 적용할 경우 외부 모듈에서 문제가 발생하면 전체 페이지에 영향을 줄 수 있다.
+  - 따라서, 외부 모듈을 연계하는 부분은 IFrame으로 적용하는 것을 권장한다.
+
