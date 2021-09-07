@@ -23,10 +23,3 @@
 
 <br/>
 <br/>
-<hr>
-
-
-
-#### 🔖 책갈피
-
-- [웹스퀘어5 고급 과정](https://www.youtube.com/watch?v=uMDO9sRGKZk&list=PL7a9HhkvOVb0JAbcD8JrThjwssqAQSNAh&index=4) - 12:00
