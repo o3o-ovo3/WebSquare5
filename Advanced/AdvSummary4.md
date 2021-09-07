@@ -33,9 +33,9 @@
 
 #### 4-3) WFrame의 Scope 속성
 
-- <img src="../resources/parent.PNG" width="500px" align="center">
-- <img src="../resources/child.PNG" width="500px" align="center">
-- <img src="../resources/result.PNG" width="500px" align="center">
+- <img src='../resources/parent.PNG' width='500px' align='center'>
+- <img src='../resources/child.PNG' width='500px' align='center'>
+- <img src='../resources/result.PNG' width='500px' align='center'>
   - 위와 같이 부모와 자식에서 동일한 id를 사용해도 에러 없이 정상적으로 작동된다.
   - scope라는 속성이 적용되었기 때문이다.
     - 실제 화면에서 rendering되는 id를 변경하는 속성이다.
@@ -98,7 +98,7 @@
 
   - AliasMap은 직접 데이터를 추가할 수 없다.
 
-    <img src="../resources/alias.PNG" width="450px" align="center">
+    <img src='../resources/alias.PNG' width='450px' align='center'>
 
   - 부모 페이지에서 생성한 DataMap을 접근하기 위해 속성을 사용한다.
 
@@ -107,11 +107,11 @@
 
   - 부모 페이지의 dataMap에서 적용한 항목과 test data 모두 확인할 수 있다.
 
-    <img src="../resources/data.PNG" width = "450px" align="center">
+    <img src='../resources/data.PNG' width = '450px' align='center'>
 
   - 부모 페이지나 자식 페이지에서 값을 바꿔도 두 곳 다 동일하게 적용된다.
 
-    <img src="../resources/alias2.PNG" width="450px" align="center">
+    <img src='../resources/alias2.PNG' width='450px' align='center'>
 
   <br/>
 
@@ -123,4 +123,4 @@
 
   - 마찬가지로 gridView의 내용이 바뀌어도 부모 - 자식 간에 동일하게 반영된다.
 
-    <img src="../resources/aliasList.PNG" width="500px" align="center">
+    <img src='../resources/aliasList.PNG' width='500px' align='center'>
