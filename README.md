@@ -7,7 +7,7 @@
 - [WebSquare5란?](./Beginners/BegSummary1.md)
 - [UI Design - 화면 구성](./Beginners/BegSummary2.md)
 - [데이터 통신 - 단건 & 다건 데이터 전송](./Beginners/BegSummary3.md)
-- [CRUD 구현 외](./BegSummary4.md)
+- [CRUD 구현 외](./Beginners/BegSummary4.md)
 <br/>
 
 ### 2. 고급 과정 교육
@@ -19,7 +19,7 @@
 - [동적 컴포넌트 생성](./Advanced/AdvSummary5.md)
 - [대용량 data 성능개선 및 gridView 속성](./Advanced/AdvSummary6.md)
 - [Excel Provider](./Advanced/AdvSummary7.md)
-- [lazy = "false" 모드](./Advanced/AdvSummary8.md)
+- [다국어 적용](./Advanced/AdvSummary8.md)
 
 <br/>
 <br/>
