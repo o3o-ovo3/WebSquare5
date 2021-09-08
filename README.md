@@ -23,8 +23,3 @@
 
 <br/>
 <br/>
-<hr>
-
-#### 🔖 책갈피
-
-- [웹스퀘어5  과정](https://www.youtube.com/watch?v=GkQsHDxqldA&list=PL7a9HhkvOVb09T_2Xdxs4sPgyDjkGlT9G&index=9) - 11:54
