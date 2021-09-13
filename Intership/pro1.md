@@ -88,4 +88,63 @@
 
 <br/>
 
-<b>방법 3) 쉘 스크립트 자체를 자바가 읽게하고, 프로젝트 안에 결과를 생성해서 그걸 자바가 읽게 한다.</b>
+<b>방법 3) 쉘 스크립트 자체를 자바가 읽게하고, 결과를 자바스크립트에서 브라우저에 표현한다.</b>
+
+- 페이지 이동 없이 단순히 필요한 데이터만 받는 경우
+- 컨트롤러에 @ResponseBody를 붙여 ajax를 이용해 jsp 페이지와 model 데이터가 아닌 <b>필요한 데이터만을 받아온다.</b>
+
+``` java
+@RequestMapping("/training/getLog.do")
+	@ResponseBody
+	public String getLogOneLine() throws Exception {
+		StringBuilder sb = new StringBuilder();
+		try {
+			String line;
+			InputStream is;
+			
+            // 쉘 스크립트 실행 부분
+			is = Runtime.getRuntime().exec("powershell Get-Content C:\\WEBSQUARE_DEV_PACK\\workspace\\ws5\\logs\\web.log -Tail 1").getInputStream();
+			BufferedReader br = new BufferedReader(new InputStreamReader(is, "MS949"));
+			while((line = br.readLine()) != null) {
+				sb.append(line); // 쉘 스크립트 실행 결과를 StringBuilder에 저장
+			}
+			br.close();
+			is.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		System.out.println("<<<<<>>>" + sb.toString()); // 확인 출력용
+		return sb.toString(); // 문자열 그대로 return
+	}
+```
+
+- Controller에 @ResponseBody 어노테이션을 붙인다.
+  - viewResolver를 생략하고 데이터만 응답하게 된다.
+  - 지금은 String을 return 했으나, 컨트롤러의 return 타입을 변경하면 int나 dto와 같은 데이터도 전송할 수 있다.
+  - 해당 데이터를 받기 위해서는 ajax를 사용해야한다. (나는 웹스퀘어를 이용하기 때문에 submission을 이용해 처리했다.)
+    - 이 방법은 reference 참고!
+
+``` javascript
+	scwin.submission1_submitdone = function(e) { // submission이 끝나면 그 결과를 e에 반환
+        // e.responseText : Response Data 원본으로 String 형태 반환
+		document.write(e.responseText);
+	};
+```
+
+- WebSquare를 활용했기 때문에 submission의 API를 이용하여 통신 후 결과 데이터를 받아와 원본 String을 출력했다.
+- 이 방법은 Vue, React 등 웹 프론트 프레임워크를 사용할 때 많이 사용하는 방법이다.
+
+<br/>
+
+<br/>
+
+<br/>
+
+
+
+<hr>
+
+### Reference📖
+
+- https://admm.tistory.com/54
