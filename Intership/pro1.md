@@ -162,3 +162,4 @@
 
 - https://admm.tistory.com/54
 - https://stackoverflow.com/questions/29545611/executing-powershell-commands-in-java-program
+- https://www.hanumoka.net/2020/07/01/java-20200701-java-shell-command/
