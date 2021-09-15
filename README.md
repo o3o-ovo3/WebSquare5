@@ -32,5 +32,7 @@
 ### 첫번째 과제 [🏆](./Intership/pro1.md)
 
 <hr/>
+
 ### CS 지식 정리
+
 - [SMB란?](./Intership/CS_Study/SMB.md)
